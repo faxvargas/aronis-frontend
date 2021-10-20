@@ -1,40 +1,51 @@
 import React, {useReducer} from "react";
 import ClotheContext from "./ClotheContext";
 import ClothesReducer from "./ClothesReducer"
-import axios from "axios"
+// import axios from "axios" 
+import axiosClient from "./../../config/axios"
 
 const ClothesState = (props) => {
 
     const initialState = {
-        clothes:[
-            {
-           name: "vestido"
-        },
-        {
-            name: "pantalon"
-        }
-    ]
+        clothes:[]
 
     }
 
-    const newClothe={
-        name: "Polo"
-    }
+    // const newClothe={
+    //     name: "Polo"
+    // }
     const [globalState, dispatch ]=useReducer(ClothesReducer, initialState)
+
+
     const getAllClothes= async()=>{
     try {
-        const res= await axios.get("https://localhost:3005/")
+        const res= await axiosClient.get("/api/clothes/get-all")
+        const clothesFromDB = res.data.data
+        dispatch({
+            type:"OBTENER_ROPA",
+            payload: clothesFromDB
+        })
     } catch (error) {
-        
+        console.log(error)
     }
     }
 
-    const addClothe=()=>{
-          dispatch({
-              type: "AGEGAR_PRENDA",
-              payload: newClothe
+    const addClothe= async (dataForm)=>{
+        console.log(dataForm)
+        try {
+            await axiosClient.post("/api/clothes/create", dataForm) 
+            getAllClothes() 
+        } catch (error) {
+            console.log(error)
+            
+        }
+       
 
-          })
+        //   dispatch({
+        //       type: "AGEGAR_PRENDA",
+        //       payload: newClothe
+
+        //   })
     }
 
     return (
@@ -42,6 +53,7 @@ const ClothesState = (props) => {
             value={
                 {
                     clothes: globalState.clothes,
+                    getAllClothes,
                     addClothe   
                 }
             }
