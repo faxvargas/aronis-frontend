@@ -1,6 +1,9 @@
 import React, { useContext, useEffect } from 'react'
 import ClotheContext from '../context/Clothes/ClotheContext'
 import ClipLoader from "react-spinners/ClipLoader";
+import{
+    Link
+}from "react-router-dom"
 
 export default function Home() {
     const ctx = useContext(ClotheContext)
@@ -109,7 +112,9 @@ export default function Home() {
                                                     </div>
                                                 </div>
                                                 <div class="mt-6">
+                                                    <Link to={`/prendas/${e._id}`}>
                                                     <a href="#" class="relative flex bg-gray-100 border border-transparent rounded-md py-2 px-8 items-center justify-center text-sm font-medium text-gray-900 hover:bg-gray-200">Ver Prenda<span class="sr-only">, Zip Tote Basket</span></a>
+                                                    </Link>
                                                 </div>
                                             </div>
 

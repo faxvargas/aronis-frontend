@@ -1,6 +1,9 @@
-import React from 'react'
+import React, {useState,useContext} from 'react'
+import UsersContext from '../context/Users/UsersContext'
+export default function Signup() {
+    const ctxUser = useContext(UsersContext)
+    console.log(ctxUser)
 
-function Signup() {
     return (
         <div>
             
@@ -8,4 +11,3 @@ function Signup() {
     )
 }
 
-export default Signup
