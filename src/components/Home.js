@@ -12,17 +12,11 @@ export default function Home() {
         clothes,
         getAllClothes
     } = ctxClothes
-    const ctxUser = useContext(UsersContext)
-    const{
-        tokenVerification
-    }= ctxUser
     useEffect(() => {
         getAllClothes()
     }, [])
     return (
         <div>
-
-            <button onClick={()=>{tokenVerification()}}> Verificar Token</button>
             <div class="bg-white">
 
                 <div class="relative pb-32 bg-gray-800">

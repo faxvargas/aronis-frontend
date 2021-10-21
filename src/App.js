@@ -15,6 +15,8 @@ import Signup from './components/Signup';
 import ClothesState from './context/Clothes/ClothesState';
 import SingleClothe from './components/SingleClothe';
 import UsersState from './context/Users/UsersState';
+import AuthRoute from './components/Routes/AuthRoute';
+
 function App() {
   return (
     <>
@@ -25,8 +27,8 @@ function App() {
       
       <Switch>
 
-        <Route exact path="/iniciar-sesion" component={Login}/>
-        <Route exact path="/crear-cuenta" component={Signup}/>
+        <AuthRoute exact path="/iniciar-sesion" component={Login}/>
+        <AuthRoute exact path="/crear-cuenta" component={Signup}/>
         <Route exact path="/prendas/crear" component={CreateClothe}/>
         <Route exact path="/prendas/:id" component={SingleClothe}/>
         <Route exact path="/prendas" component={Clothe}/>
