@@ -4,19 +4,25 @@ import ClipLoader from "react-spinners/ClipLoader";
 import{
     Link
 }from "react-router-dom"
+import UsersContext from '../context/Users/UsersContext';
 
 export default function Home() {
-    const ctx = useContext(ClotheContext)
+    const ctxClothes = useContext(ClotheContext)
     const {
         clothes,
         getAllClothes
-    } = ctx
-
+    } = ctxClothes
+    const ctxUser = useContext(UsersContext)
+    const{
+        tokenVerification
+    }= ctxUser
     useEffect(() => {
         getAllClothes()
     }, [])
     return (
         <div>
+
+            <button onClick={()=>{tokenVerification()}}> Verificar Token</button>
             <div class="bg-white">
 
                 <div class="relative pb-32 bg-gray-800">
