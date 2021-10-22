@@ -19,6 +19,7 @@ import AuthRoute from './components/Routes/AuthRoute';
 import PublicRoute from "./components/Routes/PublicRoute"
 import Profile from './components/User/Profile';
 import PrivateRoute from "./components/Routes/PrivateRoute"
+import Masculino from './components/externas/Masculino';
 
 function App() {
   return (
@@ -29,16 +30,17 @@ function App() {
         <Header/>
       
       <Switch>
+        <Route exact path="/masculino" component={Masculino}/>
         <PrivateRoute exact path="/perfil" component={Profile}/>
         <AuthRoute exact path="/iniciar-sesion" component={Login}/>
         <AuthRoute exact path="/crear-cuenta" component={Signup}/>
-        <PublicRoute exact path="/prendas/crear" component={CreateClothe}/>
+        <PrivateRoute exact path="/prendas/crear" component={CreateClothe}/>
         <PublicRoute exact path="/prendas/:id" component={SingleClothe}/>
         <PublicRoute exact path="/prendas" component={Clothe}/>
         <PublicRoute exact path="/" component={Home}/> 
 
       </Switch>
-     </Router>
+     </Router>  
      </ClothesState>
      </UsersState>
     </> 
