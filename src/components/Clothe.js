@@ -1,17 +1,17 @@
-import React, {useContext} from 'react'
+import React, { useContext } from 'react'
 import ClotheContext from '../context/Clothes/ClotheContext'
-import{
+import {
     Link
-}from "react-router-dom"
+} from "react-router-dom"
 import ClipLoader from "react-spinners/ClipLoader"
 
-export default function Clothe(){
-    const ctx=useContext(ClotheContext)
-    const{
+export default function Clothe() {
+    const ctx = useContext(ClotheContext)
+    const {
         clothes
-    }= ctx
-    return(
-        
+    } = ctx
+    return (
+
         <div>
             {
                 clothes.length === 0 ?
@@ -41,7 +41,7 @@ export default function Clothe(){
                                                 </div>
                                                 <div class="mt-6">
                                                     <Link to={`/prendas/${e._id}`}>
-                                                    <a href="#" class="relative flex bg-gray-100 border border-transparent rounded-md py-2 px-8 items-center justify-center text-sm font-medium text-gray-900 hover:bg-gray-200">Ver Prenda<span class="sr-only">, Zip Tote Basket</span></a>
+                                                        <a href="#" class="relative flex bg-gray-100 border border-transparent rounded-md py-2 px-8 items-center justify-center text-sm font-medium text-gray-900 hover:bg-gray-200">Ver Prenda<span class="sr-only">, Zip Tote Basket</span></a>
                                                     </Link>
                                                 </div>
                                             </div>
@@ -55,7 +55,7 @@ export default function Clothe(){
                     })
             }
 
-            
+
         </div>
     )
 }

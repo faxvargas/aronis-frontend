@@ -1,13 +1,26 @@
-import React,{useContext} from 'react'
-
-import{
+import React, { useContext } from 'react'
+import ClotheContext from '../context/Clothes/ClotheContext'
+import {
     Link
-}from "react-router-dom"
+} from "react-router-dom"
+import ClipLoader from "react-spinners/ClipLoader"
 export default function SingleClothe() {
+  const ctx= useContext(ClotheContext)
+    const{
+      clothes
+    } =ctx
     
     return (
-        <div>
-            <div class="bg-white">
+    
+      <div>
+      {
+          clothes.length === 0 ?
+              <ClipLoader />
+              :
+              clothes.map(e => {
+                  return (
+                      <>
+                          <div class="bg-white">
   <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:gap-x-8">
     
     <div class="lg:max-w-lg lg:self-end">
@@ -16,7 +29,7 @@ export default function SingleClothe() {
           <li>
             <div class="flex items-center text-sm">
               <a href="#" class="font-medium text-gray-500 hover:text-gray-900">
-                
+                Travel
               </a>
 
               <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="currentColor" aria-hidden="true" class="ml-2 flex-shrink-0 h-5 w-5 text-gray-300">
@@ -36,11 +49,11 @@ export default function SingleClothe() {
       </nav>
 
       <div class="mt-4">
-        <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">Everyday Ruck Snack</h1>
+        <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl"></h1>
       </div>
 
       <section aria-labelledby="information-heading" class="mt-4">
-        <h2 id="information-heading" class="sr-only">Product information</h2>
+        <h2 id="information-heading" class="sr-only">{e.name}</h2>
 
         <div class="flex items-center">
           <p class="text-lg text-gray-900 sm:text-xl">$220</p>
@@ -83,7 +96,7 @@ export default function SingleClothe() {
         </div>
 
         <div class="mt-4 space-y-6">
-          <p class="text-base text-gray-500">Don&#039;t compromise on snack-carrying capacity with this lightweight and spacious bag. The drawstring top keeps all your favorite chips, crisps, fries, biscuits, crackers, and cookies secure.</p>
+          <p class="text-base text-gray-500">Recuerde esperar al rededor de 2 o 3 horas para que la vendedora pueda ver su pedido y llegar a un acuerdo</p>
         </div>
 
         <div class="mt-6 flex items-center">
@@ -91,84 +104,47 @@ export default function SingleClothe() {
           <svg class="flex-shrink-0 w-5 h-5 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
             <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
           </svg>
-          <p class="ml-2 text-sm text-gray-500">In stock and ready to ship</p>
+          <p class="ml-2 text-sm text-gray-500">Pedido recibido</p>
         </div>
       </section>
     </div>
 
-    
+   
     <div class="mt-10 lg:mt-0 lg:col-start-2 lg:row-span-2 lg:self-center">
       <div class="aspect-w-1 aspect-h-1 rounded-lg overflow-hidden">
-        <img src="https://tailwindui.com/img/ecommerce-images/product-page-04-featured-product-shot.jpg" alt="Model wearing light green backpack with black canvas straps and front zipper pouch." class="w-full h-full object-center object-cover"/>
+        <img src="https://sd.keepcalms.com/i/keep-calm-we-are-working-on-it--11.png " alt="Model wearing light green backpack with black canvas straps and front zipper pouch." class="w-full h-full object-center object-cover"/>
       </div>
     </div>
 
-
+    
     <div class="mt-10 lg:max-w-lg lg:col-start-1 lg:row-start-2 lg:self-start">
       <section aria-labelledby="options-heading">
         <h2 id="options-heading" class="sr-only">Product options</h2>
 
         <form>
           <div class="sm:flex sm:justify-between">
-            <fieldset>
-              <legend class="block text-sm font-medium text-gray-700">
-                Size
-              </legend>
-              <div class="mt-1 grid grid-cols-1 gap-4 sm:grid-cols-2">
-                
-                <label class="relative block border border-gray-300 rounded-lg p-4 cursor-pointer focus:outline-none">
-                  <input type="radio" name="size-choice" value="18L" class="sr-only" aria-labelledby="size-choice-0-label" aria-describedby="size-choice-0-description"/>
-                  <p id="size-choice-0-label" class="text-base font-medium text-gray-900">
-                    18L
-                  </p>
-                  <p id="size-choice-0-description" class="mt-1 text-sm text-gray-500">
-                    Perfect for a reasonable amount of snacks.
-                  </p>
-                  
-                  <div class="absolute -inset-px rounded-lg border-2 pointer-events-none" aria-hidden="true"></div>
-                </label>
-
-                
-                <label class="relative block border border-gray-300 rounded-lg p-4 cursor-pointer focus:outline-none">
-                  <input type="radio" name="size-choice" value="20L" class="sr-only" aria-labelledby="size-choice-1-label" aria-describedby="size-choice-1-description"/>
-                  <p id="size-choice-1-label" class="text-base font-medium text-gray-900">
-                    20L
-                  </p>
-                  <p id="size-choice-1-description" class="mt-1 text-sm text-gray-500">
-                    Enough room for a serious amount of snacks.
-                  </p>
-                  
-                  <div class="absolute -inset-px rounded-lg border-2 pointer-events-none" aria-hidden="true"></div>
-                </label>
-              </div>
-            </fieldset>
           </div>
           <div class="mt-4">
-            <a href="#" class="group inline-flex text-sm text-gray-500 hover:text-gray-700">
-              <span>What size should I buy?</span>
-              
-              <svg class="flex-shrink-0 ml-2 h-5 w-5 text-gray-400 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
-              </svg>
-            </a>
+            
           </div>
           <div class="mt-10">
-            <button type="submit" class="w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500">Add to bag</button>
+            <button type="submit" class="w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500">Estamos trabajando en ello!</button>
           </div>
           <div class="mt-6 text-center">
-            <a href="#" class="group inline-flex text-base font-medium">
-              
-              <svg class="flex-shrink-0 mr-2 h-6 w-6 text-gray-400 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-              </svg>
-              <span class="text-gray-500 hover:text-gray-700">Lifetime Guarantee</span>
-            </a>
           </div>
         </form>
       </section>
     </div>
   </div>
 </div>
-                    </div>
-    )
+                      </>
+                  )
+              })
+      }
+
+
+  </div>
+)
 }
+
+         
