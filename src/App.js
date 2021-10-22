@@ -16,6 +16,9 @@ import ClothesState from './context/Clothes/ClothesState';
 import SingleClothe from './components/SingleClothe';
 import UsersState from './context/Users/UsersState';
 import AuthRoute from './components/Routes/AuthRoute';
+import PublicRoute from "./components/Routes/PublicRoute"
+import Profile from './components/User/Profile';
+import PrivateRoute from "./components/Routes/PrivateRoute"
 
 function App() {
   return (
@@ -26,13 +29,13 @@ function App() {
         <Header/>
       
       <Switch>
-
+        <PrivateRoute exact path="/perfil" component={Profile}/>
         <AuthRoute exact path="/iniciar-sesion" component={Login}/>
         <AuthRoute exact path="/crear-cuenta" component={Signup}/>
-        <Route exact path="/prendas/crear" component={CreateClothe}/>
-        <Route exact path="/prendas/:id" component={SingleClothe}/>
-        <Route exact path="/prendas" component={Clothe}/>
-        <Route exact path="/" component={Home}/> 
+        <PublicRoute exact path="/prendas/crear" component={CreateClothe}/>
+        <PublicRoute exact path="/prendas/:id" component={SingleClothe}/>
+        <PublicRoute exact path="/prendas" component={Clothe}/>
+        <PublicRoute exact path="/" component={Home}/> 
 
       </Switch>
      </Router>

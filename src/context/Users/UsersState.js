@@ -12,7 +12,8 @@ const UsersState=(props)=>{
             username: null,
             email:null
         },
-        authStatus:false
+        authStatus:false,
+        loading: true
     }
     const [globalState, dispatch] = useReducer(UsersReducer, initialState)
 
@@ -72,7 +73,12 @@ const UsersState=(props)=>{
             
         }
     }
-
+    
+    const logoutUser = async()=>{
+        dispatch({
+            type:"CERRAR_SESION"
+        })
+    }
 
     return(
         <UsersContext.Provider
@@ -81,7 +87,8 @@ const UsersState=(props)=>{
                 authStatus: globalState.authStatus,
                 registerUser,
                 loginUser,
-                tokenVerification
+                tokenVerification,
+                logoutUser
             }}
             >
                 {props.children}
